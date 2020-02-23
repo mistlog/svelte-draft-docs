@@ -8,6 +8,9 @@ Develop svelte app in typedraft, with possibly complete typescript support.
 
 * [Reactivity](./reactivity/reactivity.md)
 
+* [Props](./props/props.md)
+
+
 ## Examples
 
 * [Template project](https://github.com/mistlog/svelte-draft-template)
