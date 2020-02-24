@@ -10,6 +10,8 @@ Develop svelte app in typedraft, with possibly complete typescript support.
 
 * [Props](./props/props.md)
 
+* [Logic](./logic/logic.md)
+
 
 ## Examples
 
