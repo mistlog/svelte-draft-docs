@@ -1,6 +1,6 @@
 # SvelteDraft
 
-Develop svelte app in typedraft, with possibly complete typescript support.
+Develop svelte app in typedraft, with complete typescript support.
 
 ## Documentation
 
@@ -15,7 +15,9 @@ Develop svelte app in typedraft, with possibly complete typescript support.
 
 ## Examples
 
-* [Template project](https://github.com/mistlog/svelte-draft-template)
+* Template project
+    * use rollup: https://github.com/mistlog/svelte-draft-template
+    * use webpack: https://github.com/Mycl95/svelte-draft-template-webpack
 
 * [TodoMVC implementation](https://github.com/mistlog/svelte-draft-todo-mvc)
 
