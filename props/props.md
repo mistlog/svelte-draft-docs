@@ -16,7 +16,7 @@ export default function Nested(props: INestedProps)
 }
 ```
 
->[3-props/declaring-props/Nested.svelte.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/3-props/declaring-props/Nested.svelte.tsx)
+>[3-props/declaring-props/Nested.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/3-props/declaring-props/Nested.tsx)
 
 ## Default props
 
@@ -36,13 +36,14 @@ export default function Nested(props: INestedProps)
 }
 ```
 
->[3-props/default-values/Nested.svelte.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/3-props/default-values/Nested.svelte.tsx)
+>[3-props/default-values/Nested.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/3-props/default-values/Nested.tsx)
+
 ## Spread props
 
 Spreading props is also supported:
 
 ```typescript
-import Info from './Info.svelte';
+import Info from './Info';
 
 export default function App()
 {
@@ -57,4 +58,4 @@ export default function App()
 }
 ```
 
->[3-props/spread-props/App.svelte.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/3-props/spread-props/App.svelte.tsx)
+>[3-props/spread-props/App.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/3-props/spread-props/App.tsx)

@@ -29,7 +29,7 @@ function AlertAndResetCount(count: number)
 }
 ```
 
->[2-reactivity/reactive-statements/App.svelte.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/2-reactivity/reactive-statements/App.svelte.tsx)
+>[2-reactivity/reactive-statements/App.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/2-reactivity/reactive-statements/App.tsx)
 
 Everything inside `AlertAndResetCount` will be wrapped by "$":
 

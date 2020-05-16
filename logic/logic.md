@@ -23,7 +23,7 @@ export default function App()
 }
 ```
 
->[4-logic/else-if-blocks/App.svelte.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/4-logic/else-if-blocks/App.svelte.tsx)
+>[4-logic/else-if-blocks/App.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/4-logic/else-if-blocks/App.tsx)
 
 ## each
 
@@ -58,7 +58,7 @@ export default function App()
 }
 ```
 
->[4-logic/each-blocks/App.svelte.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/4-logic/each-blocks/App.svelte.tsx)
+>[4-logic/each-blocks/App.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/4-logic/each-blocks/App.tsx)
 
 For keyed `each`, the convention is that the 3rd argument should be `key = ...`:
 
@@ -70,7 +70,7 @@ For keyed `each`, the convention is that the 3rd argument should be `key = ...`:
 </each>
 ```
 
->[4-logic/keyed-each-blocks/App.svelte.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/4-logic/keyed-each-blocks/App.svelte.tsx)
+>[4-logic/keyed-each-blocks/App.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/4-logic/keyed-each-blocks/App.tsx)
 
 ## await
 
@@ -113,7 +113,7 @@ export default function App()
 }
 ```
 
->[4-logic/await-blocks/App.svelte.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/4-logic/await-blocks/App.svelte.tsx)
+>[4-logic/await-blocks/App.tsx](https://github.com/mistlog/svelte-draft-tutorial/blob/master/src/examples/4-logic/await-blocks/App.tsx)
 
 The semantic of `await` is concise and straightforward in that it leverages the semantic of javascript itself. The equivalent svelte one is :
 
