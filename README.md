@@ -1,16 +1,10 @@
-# SvelteDraft
+# Svelte Draft
 
 Develop svelte app in typedraft, with complete typescript support.
 
 ## Documentation
 
-* [Introduction](./introduction/introduction.md)
-
-* [Reactivity](./reactivity/reactivity.md)
-
-* [Props](./props/props.md)
-
-* [Logic](./logic/logic.md)
+* https://mistlog.github.io/svelte-draft-docs/
 
 
 ## Examples
