@@ -1,0 +1,15 @@
+<svg width="27" height="26.000000000000004" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="4.76302" width="4.86929" y="-1" x="-1"/>
+ </g>
+
+ <g>
+  <title>Layer 1</title>
+  <text stroke="null" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_2" y="13.99138" x="9.00493" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+  <rect stroke="null" id="svg_5" height="29.06404" width="32.0197" y="-0.66379" x="-1.58621" stroke-opacity="null" stroke-width="0" fill="#3178c6"/>
+  <rect id="svg_6" height="1.35468" width="0.86207" y="-11.87069" x="10.60591" stroke-opacity="null" stroke-width="0" stroke="null" fill="#ffffff"/>
+  <rect id="svg_7" height="6.40394" width="0.98522" y="-19.62931" x="2.60098" stroke-opacity="null" stroke-width="0" stroke="null" fill="#ffffff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" id="svg_3" y="23.76215" x="5.63734" stroke-opacity="null" stroke-width="0" stroke="null" fill="#ffffff" font-weight="bold">SD</text>
+ </g>
+</svg>

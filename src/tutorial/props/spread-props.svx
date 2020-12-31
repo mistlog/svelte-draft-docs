@@ -1,0 +1,35 @@
+<script>
+    import { REPL, compileComponent, Editor } from "svelte-element/build/editor/index";
+    import spreadProps from "./spread-props.snippet";
+    import info from "./info.snippet";
+
+    let nestedCode = info;
+
+    $: deps = {
+      "./Info": { default: compileComponent(nestedCode) }
+    };
+
+    function handleInput(e) {
+      nestedCode = e.detail.code;
+      console.log(e)
+    }
+</script>
+
+# Spread props
+
+<Editor
+    language="tsx"
+    defaultCode={info}
+    width={800}
+    height={350}
+    on:input={handleInput}>
+</Editor>
+
+The result:
+
+<REPL defaultCode={spreadProps} deps={deps}/>
+
+
+## Ref
+
+- https://svelte.dev/tutorial/spread-props

@@ -1,0 +1,15 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import snippet from "./adding-data.snippet";
+</script>
+
+# Adding data
+
+In the example below, we declare a variable called name and then use it inside JSX by wrapping it in curly braces:
+
+<REPL defaultCode={snippet}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/adding-data
+- https://reactjs.org/docs/introducing-jsx.html#embedding-expressions-in-jsx

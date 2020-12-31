@@ -1,0 +1,43 @@
+<script>
+    import { REPL, compileComponent, Editor } from "svelte-element/build/editor/index";
+    import snippetEach from "./each.snippet";
+    import snippetEachWithKey from "./each-key.snippet";
+    import thing from "./thing.snippet";
+
+    let thingCode = thing;
+
+    $: deps = {
+      "./Thing": { default: compileComponent(thingCode) }
+    };
+
+    function handleInput(e) {
+      thingCode = e.detail.code;
+      console.log(e);
+    }
+
+</script>
+
+# Each
+
+If you need to loop over lists of data, use an each block:
+
+<REPL defaultCode={snippetEach} height={500}/>
+
+If the content is dynamic, you need to specify a "key":
+
+<REPL defaultCode={snippetEachWithKey} height={600} deps={deps}/>
+
+The code of `Thing.tsx`:
+
+<Editor
+    language="tsx"
+    defaultCode={thing}
+    width={570}
+    height={500}
+    on:input={handleInput}>
+</Editor>
+
+## Ref
+
+- https://svelte.dev/tutorial/each-blocks
+- https://reactjs.org/docs/lists-and-keys.html

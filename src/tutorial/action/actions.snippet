@@ -1,0 +1,124 @@
+import { spring } from 'svelte/motion';
+import { ConfigAction, ConfigEvent } from 'svelte-types';
+import { css } from "emotion";
+import { Readable, Writable } from 'svelte/store';
+
+type TypeWithGeneric<T> = Readable<T> | Writable<T>;
+type AutoSubscribe<Type> = Type extends TypeWithGeneric<infer X> ? X : never;
+
+export default function _() {
+    const coords = spring({ x: 0, y: 0 }, {
+        stiffness: 0.2,
+        damping: 0.4
+    });
+
+
+    function handlePanStart(event: PanStartEvent) {
+        coords.stiffness = coords.damping = 1;
+    }
+
+    function handlePanMove(event: PanMoveEvent) {
+        coords.update(pos => ({
+            x: pos.x + event.detail.dx,
+            y: pos.y + event.detail.dy
+        }));
+    }
+
+    function handlePanEnd(event: PanEndEvent) {
+        coords.stiffness = 0.2;
+        coords.damping = 0.4;
+        coords.set({ x: 0, y: 0 });
+    }
+
+    function pannable(node: HTMLElement) {
+        let x: number;
+        let y: number;
+
+        function handleMousedown(event: MouseEvent) {
+            x = event.clientX;
+            y = event.clientY;
+
+            node.dispatchEvent(new CustomEvent('panstart', {
+                detail: { x, y }
+            }));
+
+            window.addEventListener('mousemove', handleMousemove);
+            window.addEventListener('mouseup', handleMouseup);
+        }
+
+        function handleMousemove(event: MouseEvent) {
+            const dx = event.clientX - x;
+            const dy = event.clientY - y;
+            x = event.clientX;
+            y = event.clientY;
+
+            node.dispatchEvent(new CustomEvent('panmove', {
+                detail: { x, y, dx, dy }
+            }));
+        }
+
+        function handleMouseup(event: MouseEvent) {
+            x = event.clientX;
+            y = event.clientY;
+
+            node.dispatchEvent(new CustomEvent('panend', {
+                detail: { x, y }
+            }));
+
+            window.removeEventListener('mousemove', handleMousemove);
+            window.removeEventListener('mouseup', handleMouseup);
+        }
+
+        node.addEventListener('mousedown', handleMousedown);
+
+        return {
+            destroy() {
+                node.removeEventListener('mousedown', handleMousedown);
+            }
+        };
+    }
+
+    let $coords: AutoSubscribe<typeof coords>;
+
+    <div class={css`
+        width: 100px;
+        height: 100px;
+        position: relative;
+        left: 45%;
+        top: 30%;
+        border-radius: 4px;
+        background-color: #ff3e00;
+        cursor: move;
+    `}
+        use={ConfigAction(pannable)}
+        on={ConfigEvent<IPannableEventMap>({
+            panstart: handlePanStart,
+            panmove: handlePanMove,
+            panend: handlePanEnd
+        })}
+        style={`transform:
+        translate(${$coords.x}px,${$coords.y}px)
+        rotate(${$coords.x * 0.2}deg)`}
+    />
+}
+
+export type PannableEvent = "panstart" | "panmove" | "panend";
+
+export type PanStartEvent = {
+    detail: { x: number, y: number }
+}
+
+export type PanEndEvent = {
+    detail: { x: number, y: number }
+}
+
+export type PanMoveEvent = {
+    detail: { x: number, y: number, dx: number, dy: number }
+}
+
+export interface IPannableEventMap {
+    "panstart"?: (event: PanStartEvent) => void;
+    "panmove"?: (event: PanMoveEvent) => void;
+    "panend"?: (event: PanEndEvent) => void;
+    [key: string]: Function;
+}

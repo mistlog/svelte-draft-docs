@@ -1,0 +1,30 @@
+import { ConfigProps } from "svelte-types";
+
+export interface ISlotProps {
+    hovering?: boolean;
+}
+
+export default function _() {
+    const style = `
+        width: 300px;
+        border: 1px solid #e6e6e6;
+        border-radius: 2px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 1em;
+        margin: 0 0 1em 0;
+    `;
+
+    let hovering: boolean;
+
+    function enter() {
+        hovering = true;
+    }
+
+    function leave() {
+        hovering = false;
+    }
+
+    <div style={style}  onMouseEnter={enter} onMouseLeave={leave}>
+        <slot props={ConfigProps<ISlotProps>({ hovering })}></slot>
+    </div>
+}

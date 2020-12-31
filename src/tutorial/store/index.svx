@@ -1,0 +1,46 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import writableSnippet from "./writable.snippet";
+    import autoSubSnippet from "./auto-sub.snippet";
+    import readableSnippet from "./readable.snippet";
+    import derivedSnippet from "./derived.snippet";
+    import customSnippet from "./custom.snippet";
+</script>
+
+# Writable store
+
+A store is simply an object with a subscribe method that allows interested parties to be notified whenever the store value changes. 
+
+<REPL defaultCode={writableSnippet}/>
+
+To simplify it, we have auto-subscription:
+
+<REPL defaultCode={autoSubSnippet}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/writable-stores
+
+# Readable store
+
+<REPL defaultCode={readableSnippet}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/readable-stores
+
+# Derived store
+
+You can create a store whose value is based on the value of one or more other stores with derived:
+
+<REPL defaultCode={derivedSnippet}/>
+
+- https://svelte.dev/tutorial/derived-stores
+
+# Custom store
+
+As long as an object correctly implements the subscribe method, it's a store:
+
+<REPL defaultCode={customSnippet}/>
+
+- https://svelte.dev/tutorial/custom-stores

@@ -1,0 +1,27 @@
+import { beforeUpdate, afterUpdate, onMount } from 'svelte';
+
+export default function _() {
+
+    beforeUpdate(() => {
+        console.log("in beforeUpdate");
+    });
+
+    afterUpdate(() => {
+        console.log("in afterUpdate");
+    });
+
+    onMount(() => {
+        console.log("in onMount");
+    });
+
+    <div>
+        <div>Open Chrome DevTool and check the log</div>
+        <br />
+        <div>expected:</div>
+        <ul>
+            <li>in beforeUpdate</li>
+            <li>in onMount</li>
+            <li>in afterUpdate</li>
+        </ul>
+    </div>
+}

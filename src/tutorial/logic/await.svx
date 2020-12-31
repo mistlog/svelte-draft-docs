@@ -1,0 +1,14 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import snippetAwait from "./await.snippet";
+</script>
+
+# Await
+
+Svelte makes it easy to await the value of `promise` directly in your markup:
+
+<REPL defaultCode={snippetAwait} height={620}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/await-blocks

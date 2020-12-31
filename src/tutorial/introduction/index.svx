@@ -1,0 +1,15 @@
+<script>
+    import Basics from "./basics.svx";
+    import AddingData from "./adding-data.svx";
+    import DynamicAttributes from "./dynamic-attributes.svx";
+    import Styling from "./styling.svx";
+    import NestedComponents from "./nested-components.svx";
+    import HTMLTags from "./html-tags.svx";
+</script>
+
+<Basics/>
+<AddingData/>
+<DynamicAttributes/>
+<Styling/>
+<NestedComponents/>
+<HTMLTags/>

@@ -1,0 +1,19 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import snippet from "./styling.snippet";
+    import { css } from "emotion";
+
+    const deps = {
+      "emotion": { css }
+    };
+</script>
+
+# Styling
+
+We can use [css-in-js](https://svelte.dev/blog/svelte-css-in-js) in this way:
+
+<REPL defaultCode={snippet} deps={deps}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/styling

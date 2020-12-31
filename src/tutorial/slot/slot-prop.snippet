@@ -1,0 +1,19 @@
+import Box, { ISlotProps } from './BoxWithProp';
+
+export default function _() {
+    const style = `
+		background-color: #ff3e00;
+        color: white;
+    `;
+
+    <Box>
+        {({ hovering }: ISlotProps) => (
+            <if condition={hovering}>
+                <p style={style}>I am being hovered upon.</p>
+                <else>
+                    <p>Hover over me!</p>
+                </else>
+            </if>
+        )}
+    </Box>
+}

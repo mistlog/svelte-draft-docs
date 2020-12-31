@@ -1,0 +1,9 @@
+<script>
+    import DeclaringProps from "./declaring-props.svx";
+    import DefaultProps from "./default-props.svx";
+    import SpreadProps from "./spread-props.svx";
+</script>
+
+<DeclaringProps/>
+<DefaultProps/>
+<SpreadProps/>

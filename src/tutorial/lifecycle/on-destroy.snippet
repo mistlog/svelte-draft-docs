@@ -1,0 +1,21 @@
+import { onDestroy } from 'svelte';
+
+export default function _() {
+    let seconds = 0;
+
+
+    function onInterval(callback: Function, milliseconds: number) {
+        const interval = setInterval(callback, milliseconds);
+
+        onDestroy(() => {
+            clearInterval(interval);
+        });
+    }
+
+    onInterval(() => seconds += 1, 1000);
+    
+    <p>
+        The page has been open for
+        {seconds} {seconds === 1 ? 'second' : 'seconds'}
+    </p>
+}

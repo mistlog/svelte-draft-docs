@@ -1,0 +1,72 @@
+<script>
+    import { REPL, compileComponent, Editor } from "svelte-element/build/editor/index";
+    import slotSnippet from "./slot.snippet";
+    import slotPropSnippet from "./slot-prop.snippet";
+    import nested from "./box.snippet";
+    import nestedProp from "./box-prop.snippet";
+
+    let nestedCode = nested;
+    let nestedPropCode = nestedProp;
+
+    $: deps = {
+      "./Box": { default: compileComponent(nestedCode) },
+      "./BoxWithProp": { default: compileComponent(nestedPropCode) }
+    };
+
+    function handleInput(e) {
+      nestedCode = e.detail.code;
+    }
+</script>
+
+# Slot
+
+Just like elements can have children...
+
+```tsx
+<div>
+  <p>I'm a child of the div</p>
+</div>
+```
+
+...so can components.
+
+<REPL defaultCode={slotSnippet} deps={deps}/>
+
+The code in `Box`:
+
+<Editor
+    language="tsx"
+    defaultCode={nested}
+    width={450}
+    height={300}
+    on:input={handleInput}>
+</Editor>
+
+## Ref
+
+- https://svelte.dev/tutorial/slots
+
+# Fallbacks & Named slots
+
+## Ref
+
+* https://svelte.dev/tutorial/slot-fallbacks
+* https://svelte.dev/tutorial/named-slots
+
+# Slot props
+
+<REPL defaultCode={slotPropSnippet} deps={deps}/>
+
+The code in `BoxWithProp`:
+
+<Editor
+    language="tsx"
+    defaultCode={nestedProp}
+    width={550}
+    height={600}
+    on:input={handleInput}>
+</Editor>
+
+## Ref
+
+* https://svelte.dev/tutorial/slot-props

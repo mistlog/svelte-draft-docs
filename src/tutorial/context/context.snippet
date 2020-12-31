@@ -1,0 +1,11 @@
+import Nested from './Nested';
+import { setContext } from "svelte";
+
+export default function _() {
+    setContext("color", "purple");
+
+    <div>
+        <p>This is a paragraph.</p>
+        <Nested />
+    </div>
+}

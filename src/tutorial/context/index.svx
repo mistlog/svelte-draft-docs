@@ -1,0 +1,35 @@
+<script>
+    import { REPL, compileComponent, Editor } from "svelte-element/build/editor/index";
+    import contextSnippet from "./context.snippet";
+    import nested from "./nested.snippet";
+
+    let nestedCode = nested;
+
+    $: deps = {
+      "./Nested": { default: compileComponent(nestedCode) }
+    };
+
+    function handleInput(e) {
+      nestedCode = e.detail.code;
+    }
+</script>
+
+# Context API
+
+The context API provides a mechanism for components to 'talk' to each other without passing around data and functions as props, or dispatching lots of events.
+
+<REPL defaultCode={contextSnippet} deps={deps}/>
+
+The code in `Nested Component`:
+
+<Editor
+    language="tsx"
+    defaultCode={nested}
+    width={450}
+    height={300}
+    on:input={handleInput}>
+</Editor>
+
+## Ref
+
+- https://svelte.dev/tutorial/context-api

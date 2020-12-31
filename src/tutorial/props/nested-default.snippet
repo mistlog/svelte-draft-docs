@@ -1,0 +1,8 @@
+export interface INestedProps {
+    answer: number | string;
+}
+
+export default function _(props: INestedProps) {
+    const { answer = 'a mystery' } = props;
+    <p>The answer is {answer}</p>
+}

@@ -1,0 +1,18 @@
+import { writable, Readable, Writable } from 'svelte/store';
+
+// ref: https://stackoverflow.com/a/50924506
+type TypeWithGeneric<T> = Readable<T> | Writable<T>;
+type AutoSubscribe<Type> = Type extends TypeWithGeneric<infer X> ? X : never;
+
+export default function _() {
+
+    const count = writable(0);
+
+    let $count : AutoSubscribe<typeof count>;
+
+    setInterval(() => {
+        count.update(value => value + 1);
+    }, 1000);
+
+    <p> Count: {$count} </p>
+}

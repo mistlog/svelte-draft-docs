@@ -1,0 +1,61 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import assignments from "./assignments.snippet";
+    import declarations from "./declarations.snippet";
+    import statements from "./statements.snippet";
+    import update from "./update-arrays-and-objects.snippet";
+</script>
+
+# Reactivity
+
+We don't need the `setState` concept in `React`, the reactivity is baked into the implementation.
+For example, inside the `handleClick` function, all we need to do is change the value of count:
+
+<REPL defaultCode={assignments}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/reactive-assignments
+
+
+# Declarations & Statements
+
+When some parts of a component's state need to be computed from other parts and recomputed whenever they change, we use reactive declarations in svelte. Also, we can run arbitrary statements reactively as in [reactive-statements](https://svelte.dev/tutorial/).
+
+In `SvelteDraft`, we use `watch` DSL to achieve reactive statements, and reactive decalrations can be implemented in this way:
+
+<REPL defaultCode={declarations} height={390}/>
+
+The code: 
+
+```tsx
+{
+    "use watch";
+    doubled = count * 2;
+}
+```
+
+will be translated to exactly: 
+
+```tsx
+$: {
+    doubled = count * 2;
+}
+```
+
+Here is another example of reactive statements, we can extract complex logic into [macro](https://mistlog.github.io/typedraft-docs/docs/jsx-as-macro) `AlertAndResetCount` like this:
+
+<REPL defaultCode={statements} height={450}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/reactive-declarations
+- https://svelte.dev/tutorial/reactive-statements
+
+# Updating arrays and objects
+
+<REPL defaultCode={update} height={460}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/updating-arrays-and-objects

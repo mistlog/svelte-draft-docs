@@ -1,0 +1,42 @@
+<script>
+    import { REPL, compileComponent, Editor } from "svelte-element/build/editor/index";
+    import declaringProps from "./declaring-props.snippet";
+    import nested from "./nested.snippet";
+
+    let nestedCode = nested;
+
+    $: deps = {
+      "./Nested": { default: compileComponent(nestedCode) }
+    };
+
+    function handleInput(e) {
+      nestedCode = e.detail.code;
+      console.log(e)
+    }
+</script>
+
+# Props
+
+We use props in [React](https://reactjs.org/docs/components-and-props.html) style :
+
+<Editor
+    language="tsx"
+    defaultCode={nested}
+    width={450}
+    height={300}
+    on:input={handleInput}>
+</Editor>
+
+The result:
+
+<REPL defaultCode={declaringProps} deps={deps}/>
+
+Conventions:
+
+* the first param of the default export function is "props"
+* use object destructuring to "declare" props
+
+
+## Ref
+
+- https://svelte.dev/tutorial/declaring-props

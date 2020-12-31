@@ -1,0 +1,10 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import If from "./if.svx";
+    import Each from "./each.svx";
+    import Await from "./await.svx";
+</script>
+
+<If/>
+<Each/>
+<Await/>

@@ -1,0 +1,9 @@
+import Inner, { MessageEvent } from './Inner';
+
+export default function _() {
+    function handleMessage(event: MessageEvent) {
+        alert(event.detail.text);
+    };
+
+    <Inner onMessage={handleMessage} />
+}

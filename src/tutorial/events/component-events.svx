@@ -1,0 +1,36 @@
+<script>
+    import { REPL, compileComponent, Editor } from "svelte-element/build/editor/index";
+    import appSnippet from "./app.snippet";
+    import inner from "./inner.snippet";
+
+    let innerCode = inner;
+
+    $: deps = {
+      "./Inner": { default: compileComponent(innerCode) }
+    };
+
+    function handleInput(e) {
+      innerCode = e.detail.code;
+    }
+
+</script>
+
+# Component events
+
+Component can also dispatch events:
+
+<REPL defaultCode={appSnippet} deps={deps}/>
+
+The code of `Inner.tsx`:
+
+<Editor
+    language="tsx"
+    defaultCode={inner}
+    width={650}
+    height={550}
+    on:input={handleInput}>
+</Editor>
+
+## Ref
+
+- https://svelte.dev/tutorial/component-events

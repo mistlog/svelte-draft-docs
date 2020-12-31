@@ -1,0 +1,65 @@
+<script>
+    import { REPL, compileComponent, Editor } from "svelte-element/build/editor/index";
+    import appSnippet from "./app-forward.snippet";
+    import inner from "./inner-forward.snippet";
+
+    let innerCode = inner;
+
+    $: deps = {
+      "./Inner": { default: compileComponent(innerCode) }
+    };
+
+    function handleInput(e) {
+      innerCode = e.detail.code;
+    }
+
+</script>
+
+# Event forwarding
+
+You can forward event by specifying only the name without handler:
+
+<Editor
+    language="tsx"
+    defaultCode={inner}
+    on:input={handleInput}>
+</Editor>
+
+The code of `App.tsx`:
+
+<REPL defaultCode={appSnippet} deps={deps}/>
+
+Event forwarding works for component events too, for example, we can wrap `Inner` component in an `Outer` component like this and then use it in `App.tsx` as usual:
+
+```tsx
+/**
+ * Outer.tsx
+ */
+
+import Inner, { MessageEvent } from "./Inner";
+
+export interface IOuterProps {
+  onMessage: (event: MessageEvent) => void;
+}
+
+export default function Outer(props: IOuterProps) {
+  <Inner onMessage />;
+}
+```
+
+In `Inner.tsx`, the interface of props should be written as follows(for type check only):
+
+```tsx
+/**
+ * Inner.tsx
+ */
+
+export interface IInnerProps {
+    // boolean: for event forwarding
+    onMessage: boolean | ((event: MessageEvent) => void);
+}
+```
+
+## Ref
+
+- https://svelte.dev/tutorial/event-forwarding

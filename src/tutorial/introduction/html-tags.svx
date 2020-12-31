@@ -1,0 +1,14 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import snippet from "./html-tags.snippet";
+</script>
+
+# HTML tags
+
+We use `raw-html` tag to render HTML directly into a component:
+
+<REPL defaultCode={snippet}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/html-tags

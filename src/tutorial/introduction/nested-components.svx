@@ -1,0 +1,38 @@
+<script>
+    import { REPL, Editor, compileComponent } from "svelte-element/build/editor/index";
+    import snippet from "./nested-components.snippet";
+    import nested from "./nested.snippet";
+    import { css } from "emotion";
+
+    let nestedCode = nested;
+
+    $: deps = {
+      "./Nested": { default: compileComponent(nestedCode, { "emotion": { css } } ) }
+    };
+
+    function handleInput(e) {
+      nestedCode = e.detail.code;
+      console.log(e)
+    }
+    
+</script>
+
+# Nested components
+
+The default export is the `Nested` component:
+
+<REPL defaultCode={snippet} deps={deps}/>
+
+Modify the code in `Nested Component` to see the difference:
+
+<Editor
+    language="tsx"
+    defaultCode={nested}
+    width={450}
+    height={300}
+    on:input={handleInput}>
+</Editor>
+
+## Ref
+
+- https://svelte.dev/tutorial/nested-components

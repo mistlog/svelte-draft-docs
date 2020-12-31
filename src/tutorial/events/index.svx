@@ -1,0 +1,13 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import DomEvents from "./dom-events.svx";
+    // note: no event-modifiers
+    import ComponentEvents from "./component-events.svx";
+    import EventForwarding from "./event-forwarding.svx";
+
+</script>
+
+<DomEvents/>
+<ComponentEvents/>
+<EventForwarding/>
+

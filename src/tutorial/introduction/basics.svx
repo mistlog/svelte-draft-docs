@@ -1,0 +1,19 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import snippet from "./basics.snippet";
+</script>
+
+# Introduction
+
+In SvelteDraft, component is written in `tsx` style. The `hello world` example:
+
+<REPL defaultCode={snippet}/>
+
+Conventions:
+
+* component is the default exported function(so the function name can be any valid identifier)
+* you don't need to return something from this default function
+
+## Ref
+
+- https://svelte.dev/tutorial/basics

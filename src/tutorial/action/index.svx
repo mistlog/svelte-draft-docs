@@ -1,0 +1,27 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import actionsSnippet from "./actions.snippet";
+    import withParamSnippet from "./with-param.snippet";
+
+    import { css } from "emotion";
+
+    const deps = {
+      "emotion": { css }
+    };
+
+</script>
+
+# Actions
+
+Actions are essentially element-level lifecycle functions.
+
+<REPL defaultCode={actionsSnippet} orientation="vertical" deps={deps} />
+
+An action can take an argument:
+
+<REPL defaultCode={withParamSnippet} orientation="vertical" />
+
+## Ref
+
+- https://svelte.dev/tutorial/actions
+- https://svelte.dev/tutorial/adding-parameters-to-actions

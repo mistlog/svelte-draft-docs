@@ -1,0 +1,15 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import snippet from "./dynamic-attributes.snippet";
+</script>
+
+# Dynamic attributes
+
+You may use curly braces to embed a JavaScript expression in an attribute:
+
+<REPL defaultCode={snippet}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/dynamic-attributes
+- https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx

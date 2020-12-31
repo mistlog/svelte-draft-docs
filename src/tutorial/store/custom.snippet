@@ -1,0 +1,28 @@
+import { writable, Readable, Writable } from 'svelte/store';
+
+type TypeWithGeneric<T> = Readable<T> | Writable<T>;
+type AutoSubscribe<Type> = Type extends TypeWithGeneric<infer X> ? X : never;
+
+export default function _() {
+
+    function createCount() {
+        const { subscribe, set, update } = writable(0);
+
+        return {
+            subscribe,
+            increment: () => update(n => n + 1),
+            decrement: () => update(n => n - 1),
+            reset: () => set(0)
+        };
+    }
+
+    const count = createCount();
+    let $count: AutoSubscribe<typeof count>;
+
+    <div>
+        <h1>The count is {$count}</h1>
+        <button onClick={count.increment}>+</button>
+        <button onClick={count.decrement}>-</button>
+        <button onClick={count.reset}>reset</button>
+    </div>
+}

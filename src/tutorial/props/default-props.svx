@@ -1,0 +1,37 @@
+<script>
+    import { REPL, compileComponent, Editor } from "svelte-element/build/editor/index";
+    import defaultProps from "./declaring-props-default.snippet";
+    import nested from "./nested-default.snippet";
+
+    let nestedCode = nested;
+
+    $: deps = {
+      "./Nested": { default: compileComponent(nestedCode) }
+    };
+
+    function handleInput(e) {
+      nestedCode = e.detail.code;
+      console.log(e)
+    }
+</script>
+
+# Default value
+
+We can easily specify default values for props in `Nested.tsx`:
+
+<Editor
+    language="tsx"
+    defaultCode={nested}
+    width={450}
+    height={300}
+    on:input={handleInput}>
+</Editor>
+
+The result:
+
+<REPL defaultCode={defaultProps} deps={deps}/>
+
+
+## Ref
+
+- https://svelte.dev/tutorial/default-values

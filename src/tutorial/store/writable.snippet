@@ -1,0 +1,21 @@
+import { writable } from 'svelte/store';
+import { onDestroy } from 'svelte';
+
+export default function _() {
+
+    const countStore = writable(0);
+
+    let count = 0;
+
+    const unsubscribe = countStore.subscribe(value => {
+        count = value;
+    });
+
+    onDestroy(unsubscribe);
+
+    setInterval(() => {
+        countStore.update(value => value + 1);
+    }, 1000);
+
+    <p> Count: {count} </p>
+}

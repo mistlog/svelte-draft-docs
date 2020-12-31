@@ -1,0 +1,19 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import domSnippet from "./dom.snippet";
+    import inlineSnippet from "./dom-inline.snippet";
+</script>
+
+# DOM events
+
+We can listen to any event on an element in [React](https://reactjs.org/docs/handling-events.html) style:
+
+<REPL defaultCode={domSnippet}/>
+
+You can also declare event handlers inline:
+
+<REPL defaultCode={inlineSnippet}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/dom-events

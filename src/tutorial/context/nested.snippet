@@ -1,0 +1,13 @@
+import { getContext } from "svelte";
+
+export default function _() {
+
+    const color = getContext("color");
+
+    const style = `
+        color: ${color};
+        font-family: 'Comic Sans MS', cursive;
+    `;
+    
+    <p style={style}>This is another paragraph.</p>
+}

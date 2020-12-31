@@ -1,0 +1,30 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import textInputSnippet from "./text-input.snippet";
+    import refSnippet from "./ref.snippet";
+</script>
+
+# Binding
+
+We prefer top down data flow in `SvelteDraft`, however, two-way binding is convenient in some cases:
+
+<REPL defaultCode={textInputSnippet}/>
+
+Convention:
+
+* use `bindValue` as prop to bind value
+
+
+## Ref
+
+- https://svelte.dev/tutorial/text-inputs
+
+# Ref and DOM
+
+To obtain a reference to rendered element, we use `bindRef`:
+
+<REPL defaultCode={refSnippet} orientation="vertical"/>
+
+## Ref
+
+- https://svelte.dev/tutorial/bind-this

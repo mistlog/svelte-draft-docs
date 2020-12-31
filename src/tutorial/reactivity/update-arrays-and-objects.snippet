@@ -1,0 +1,23 @@
+export default function _() {
+    //
+    let numbers = [1, 2, 3, 4];
+
+    function addNumber() {
+        numbers = [...numbers, numbers.length + 1];
+    }
+
+    //
+    let sum: number = 0;
+    {
+        "use watch";
+        sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    }
+
+    //
+    <div>
+        <p>{numbers.join(' + ')} = {sum}</p>
+        <button onClick={addNumber}>
+            Add a number
+        </button>
+    </div>
+}

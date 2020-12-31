@@ -1,0 +1,42 @@
+import { readable, derived, Readable, Writable } from 'svelte/store';
+
+type TypeWithGeneric<T> = Readable<T> | Writable<T>;
+type AutoSubscribe<Type> = Type extends TypeWithGeneric<infer X> ? X : never;
+
+export default function _() {
+
+    //
+    const time = readable(new Date(), function start(set) {
+        const interval = setInterval(() => {
+            set(new Date());
+        }, 1000);
+
+        return function stop() {
+            clearInterval(interval);
+        };
+    });
+    let $time : AutoSubscribe<typeof time>;
+
+    //
+    const start = new Date();
+    const elapsed = derived(
+        time,
+        ($time: Date) => Math.round(($time.getTime() - start.getTime()) / 1000)
+    );
+    let $elapsed : AutoSubscribe<typeof elapsed>;
+
+    //
+    const formatter = new Intl.DateTimeFormat('en', {
+        hour12: true,
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+
+    <h1>The time is {formatter.format($time)}</h1>;
+
+    <p>
+        This page has been open for
+	    {$elapsed} {$elapsed === 1 ? 'second' : 'seconds'}
+    </p>
+}

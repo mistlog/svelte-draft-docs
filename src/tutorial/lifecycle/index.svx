@@ -1,0 +1,35 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import onMountSnippet from "./on-mount.snippet";
+    import onDestroySnippet from "./on-destroy.snippet";
+    import updateSnippet from "./update.snippet";
+    import tickSnippet from "./tick.snippet";
+</script>
+
+# Lifecycle
+
+The one you'll use most frequently is `onMount`, which runs after the component is first rendered to the DOM:
+
+<REPL defaultCode={onMountSnippet} orientation="vertical"/>
+
+To run code when your component is destroyed, use `onDestroy`:
+
+<REPL defaultCode={onDestroySnippet} />
+
+The `beforeUpdate` function schedules work to happen immediately before the DOM has been updated. `afterUpdate` is its counterpart, used for running code once the DOM is in sync with your data:
+
+<REPL defaultCode={updateSnippet} />
+
+## Ref
+
+- https://svelte.dev/tutorial/onmount
+
+# Tick
+
+When you update component state in Svelte, it doesn't update the DOM immediately. The `tick` function returns a promise that resolves as soon as any pending state changes have been applied to the DOM:
+
+<REPL defaultCode={tickSnippet} orientation="vertical" />
+
+## Ref
+
+- https://svelte.dev/tutorial/tick

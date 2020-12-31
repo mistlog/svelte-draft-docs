@@ -1,0 +1,24 @@
+<script>
+    import { REPL } from "svelte-element/build/editor/index";
+    import snippetIf from "./if.snippet";
+    import snippetElse from "./else.snippet";
+    import snippetElseIf from "./else-if.snippet";
+</script>
+
+# If
+
+To conditionally render some markup, we wrap logic in an if tag:
+
+<REPL defaultCode={snippetIf} height={400}/>
+
+we can simplify this component slightly by using an else block:
+
+<REPL defaultCode={snippetElse} height={400}/>
+
+Multiple conditions can be 'chained' together with else if:
+
+<REPL defaultCode={snippetElseIf} height={400}/>
+
+## Ref
+
+- https://svelte.dev/tutorial/if-blocks
